@@ -10,6 +10,9 @@ extern crate c_vec;
 #[macro_use]
 extern crate glib;
 
+#[cfg(feature = "xlib")]
+extern crate x11;
+
 pub use ffi::enums;
 pub use ffi::cairo_rectangle_t as Rectangle;
 
@@ -102,6 +105,9 @@ pub use xcb::{
     XCBVisualType,
 };
 
+#[cfg(feature = "xlib")]
+pub use xlib::XlibSurface;
+
 pub mod prelude;
 
 mod font;
@@ -117,6 +123,8 @@ mod surface;
 mod matrices;
 #[cfg(feature = "xcb")]
 mod xcb;
+#[cfg(feature = "xlib")]
+mod xlib;
 
 #[cfg(windows)]
 mod win32_surface;

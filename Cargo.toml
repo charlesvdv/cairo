@@ -22,6 +22,7 @@ xcb = ["cairo-sys-rs/xcb"]
 purge-lgpl-docs = ["gtk-rs-lgpl-docs"]
 v1_12 = ["cairo-sys-rs/v1_12"]
 default = ["glib"]
+xlib = ["cairo-sys-rs/xlib", "x11"]
 
 [build-dependencies.gtk-rs-lgpl-docs]
 git = "https://github.com/gtk-rs/lgpl-docs"
@@ -40,6 +41,7 @@ optional = true
 [dependencies]
 libc = "0.2"
 c_vec = "~1.2"
+x11 = { version = "2.14.0", features = ["xlib"], optional = true }
 
 [target.'cfg(windows)'.dependencies]
 winapi = "0.2.7"
